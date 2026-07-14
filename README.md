@@ -1,6 +1,6 @@
 # Internship Recommendation System
 
-![CI](https://github.com/<your-username>/internship-recommender/actions/workflows/ci.yml/badge.svg)
+![CI](![CI](https://github.com/simranGupta7084/Internship-Recommendation-System/actions/workflows/ci.yml/badge.svg))
 
 A backend service that matches a student's resume/skills against live internship
 listings pulled from Jooble, Adzuna, and USAJOBS, using sentence-embedding
