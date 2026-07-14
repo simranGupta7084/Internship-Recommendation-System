@@ -10,4 +10,4 @@ COPY . .
 ENV FLASK_APP=app.py
 EXPOSE 5000
 
-CMD ["python", "app.py"]
+CMD gunicorn -b 0.0.0.0:${PORT:-5000} app:app --workers 1 --timeout 120
