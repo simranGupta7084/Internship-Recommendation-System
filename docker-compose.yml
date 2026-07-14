@@ -1,0 +1,25 @@
+services:
+  mongo:
+    image: mongo:7
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  app:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      MONGO_URI: mongodb://mongo:27017/
+      API_KEY: ${API_KEY:-dev-local-key}
+      JOOBLE_API_KEY: ${JOOBLE_API_KEY:-}
+      ADZUNA_APP_ID: ${ADZUNA_APP_ID:-}
+      ADZUNA_APP_KEY: ${ADZUNA_APP_KEY:-}
+      USAJOBS_USER_AGENT: ${USAJOBS_USER_AGENT:-}
+      USAJOBS_API_KEY: ${USAJOBS_API_KEY:-}
+    depends_on:
+      - mongo
+
+volumes:
+  mongo_data:
